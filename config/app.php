@@ -136,6 +136,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        Illuminate\Html\HtmlServiceProvider, 
 
         /*
          * Application Service Providers...
@@ -144,7 +145,7 @@ return [
         TuFracc\Providers\AuthServiceProvider::class,
         TuFracc\Providers\EventServiceProvider::class,
         TuFracc\Providers\RouteServiceProvider::class,
-        'Collective\Html\HtmlServiceProvider',
+        Collective\Html\HtmlServiceProvider::class,
 
     ],
 
