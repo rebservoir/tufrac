@@ -1,5 +1,5 @@
 function Mostrar(btn){
-    var route = "/usuario/"+btn.value+"/edit";
+    var route = "../usuario/"+btn.value+"/edit";
     $.get(route, function(res){
         $("#name1").val(res.name);
         $("#email1").val(res.email);
