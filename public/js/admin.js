@@ -24,7 +24,7 @@ $("#registrar_pago").click(function(){
     console.log(dato3);
     console.log(dato4);
 
-    var route = "/pagos";
+    var route = "../pagos";
     var token = $("#token").val();
 
     $.ajax({
@@ -45,7 +45,7 @@ $("#registrar_pago").click(function(){
 
 
 function Mostrar_pago(btn){
-    var route = "/pagos/"+btn.value+"/edit";
+    var route = "../pagos/"+btn.value+"/edit";
 
     $.get(route, function(res){
         $("#id_user_pago").val(res.id_user);
@@ -68,7 +68,7 @@ $("#actualizar_pago").click(function(){
     console.log(dato4);
 
     var value = $("#id_pago").val();
-    var route = "/pagos/"+value+"";
+    var route = "../pagos/"+value+"";
     var token = $("#token_pago").val();
 
     $.ajax({
@@ -90,7 +90,7 @@ $("#actualizar_pago").click(function(){
 $("#eliminar_pago").click(function(){
     if (confirm("Eliminar este pago?") == true) {
         var value = $("#id_pago").val();
-        var route = "/pagos/"+value;
+        var route = "../pagos/"+value;
         var token = $("#token_pago").val();
 
         $.ajax({
@@ -116,7 +116,7 @@ $("#eliminar_pago").click(function(){
     //var dato2 = $("#datepicker_eg").val();
     //var dato3 = $("#amount_egresos").val();
 
-    var route = "/egresos";
+    var route = "../egresos";
     var token = $("#token_eg").val();
 
     $.ajax({
@@ -138,7 +138,7 @@ $("#eliminar_pago").click(function(){
 
 
 function Mostrar_egresos(btn){
-    var route = "/egresos/"+btn.value+"/edit";
+    var route = "../egresos/"+btn.value+"/edit";
 
     $.get(route, function(res){
         $("#concept_eg").val(res.concept);
@@ -152,7 +152,7 @@ function Mostrar_egresos(btn){
 $("#eliminar_egresos").click(function(){
     if (confirm("Eliminar este egreso?") == true) {
         var value = $("#id_egresos").val();
-        var route = "/egresos/"+value;
+        var route = "../egresos/"+value;
         var token = $("#token_eg").val();
 
         $.ajax({

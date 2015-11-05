@@ -24,7 +24,7 @@ $("#registrar").click(function(){
     var dato6 = $("#role").val();
     var dato7 = $("#password").val();
 
-    var route = "/usuario";
+    var route = "../usuario";
     var token = $("#token").val();
 
     $.ajax({
@@ -63,7 +63,7 @@ $("#actualizar").click(function(){
     var dato6 = $("#role1").val();
 
 
-    var route = "/usuario/"+value+"";
+    var route = "../usuario/"+value+"";
     var token = $("#token").val();
 
     $.ajax({
@@ -91,7 +91,7 @@ $("#actualizar").click(function(){
 
 $("#eliminar").click(function(){
     var value = $("#id1").val();
-    var route = "/usuario/"+value+"";
+    var route = "../usuario/"+value+"";
     var token = $("#token").val();
 
     $.ajax({
