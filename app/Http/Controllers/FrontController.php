@@ -54,7 +54,7 @@ class FrontController extends Controller
     public function noticias(Request $request)
     {
         $noticias = Noticia::orderBy('created_at', 'desc')->paginate(5);
-        $noticias->setPath('/laravel5_1/public/noticias');
+        $noticias->setPath('/noticias');
 
         if($this->auth->user()->role != 1){
             if($request->ajax()){
@@ -103,7 +103,7 @@ class FrontController extends Controller
         if($this->auth->user()->role == 1){
 
                 $users = User::paginate(20);
-                $users->setPath('/laravel5_1/public/admin/home');
+                $users->setPath('/admin/home');
                 $morosos = Morosos::where('id', 0)->get();
                 $noticias = Noticia::all()->sortByDesc('created_at')->take(2);
                 return view('admin/index', ['noticias' => $noticias, 'users' => $users, 'morosos' => $morosos ]);
@@ -117,7 +117,7 @@ class FrontController extends Controller
     {
         if($this->auth->user()->role == 1){
             $users = User::paginate(20);
-            $users->setPath('/laravel5_1/public/admin/administracion');
+            $users->setPath('/admin/administracion');
             $pagos = Pagos::all();
             $egresos = Egresos::all();
             return view('/admin/admin_modulo', ['users' => $users, 'pagos' => $pagos, 'egresos' => $egresos]);

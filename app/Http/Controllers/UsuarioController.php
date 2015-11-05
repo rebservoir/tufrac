@@ -35,7 +35,7 @@ class UsuarioController extends Controller
     public function index()
     {
         $users = User::paginate(10);
-        $users->setPath('/laravel5_1/public/usuario');
+        $users->setPath('/usuario');
         return view('usuario.usuarios',compact('users'));
     }
 
