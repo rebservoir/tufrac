@@ -3,7 +3,7 @@ $("#registrar").click(function(){
     var dato2 = $("#address1").val();
     var dato3 = $("#phone_num1").val();
     var dato4 = $("#category1").val();
-    var route = "http://localhost:8080/laravel5_1/public/utiles";
+    var route = "/utiles";
     var token = $("#token1").val();
 
     $.ajax({
@@ -23,7 +23,7 @@ $("#registrar").click(function(){
 
 
 function Mostrar(btn){
-    var route = "http://localhost:8080/laravel5_1/public/utiles/"+btn.value+"/edit";
+    var route = "/utiles/"+btn.value+"/edit";
     $.get(route, function(res){
         $("#concept").val(res.concept);
         $("#address").val(res.address);
@@ -40,7 +40,7 @@ $("#actualizar").click(function(){
     var dato3 = $("#phone_num").val();
     var dato4 = $("#category").val();
 
-    var route = "http://localhost:8080/laravel5_1/public/utiles/"+value+"";
+    var route = "/utiles/"+value+"";
     var token = $("#token").val();
 
     $.ajax({
@@ -60,7 +60,7 @@ $("#actualizar").click(function(){
 
 $("#eliminar").click(function(){
     var value = $("#id").val();
-    var route = "http://localhost:8080/laravel5_1/public/utiles/"+value+"";
+    var route = "/utiles/"+value+"";
     var token = $("#token").val();
 
     $.ajax({
@@ -80,7 +80,7 @@ $("#eliminar").click(function(){
 var file_noti;
 
 function Mostrar_noticia(btn){
-    var route = "http://localhost:8080/laravel5_1/public/noticia/"+btn.value+"/edit";
+    var route = "/noticia/"+btn.value+"/edit";
 
     $.get(route, function(res){
         $("#titulo1").val(res.titulo);
@@ -95,7 +95,7 @@ $("#registrar_noticia").on("submit", function(e){
     e.preventDefault();
     var fd = new FormData(this);
 
-    var route = "http://localhost:8080/laravel5_1/public/noticia";
+    var route = "/noticia";
     var token = $("#token").val();
 
     $.ajax({
@@ -126,7 +126,7 @@ $("#actualizar_noticia").on("submit", function(e){
     console.log(dato3);
     console.log("file_noti:" + file_noti);
 
-    var route = "http://localhost:8080/laravel5_1/public/noticia/"+value+"";
+    var route = "/noticia/"+value+"";
     var token = $("#token_noti_1").val();
 
     if(dato3 == ""){
@@ -159,7 +159,7 @@ $("#actualizar_noticia").on("submit", function(e){
 $("#eliminar_noticia").click(function(){
     if (confirm("Eliminar esta Noticia?") == true) {
         var value = $("#id_noti_1").val();
-        var route = "http://localhost:8080/laravel5_1/public/noticia/"+value;
+        var route = "/noticia/"+value;
         var token = $("#token_noti_1").val();
 
         $.ajax({
