@@ -42,7 +42,7 @@
 							</div>
 						
 							<div class="cont_in_r">
-								@include('../admin/morosos')
+								@include('admin/morosos')
 							</div>
 						</div>
 
