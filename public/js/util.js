@@ -80,7 +80,7 @@ $("#eliminar").click(function(){
 var file_noti;
 
 function Mostrar_noticia(btn){
-    var route = "noticia/"+btn.value+"/edit";
+    var route = "/noticia/"+btn.value+"/edit";
 
     $.get(route, function(res){
         $("#titulo1").val(res.titulo);
