@@ -29,6 +29,17 @@
 <div class="tab-content">
 	<div id="tablaEgresos">
 	  <div id="ene" class="tab-pane fade in active">
+
+			
+
+
+
+
+{{--*/ $number = 1234.56 /*--}}
+{{--*/ setlocale(LC_MONETARY, 'en_US') /*--}}
+{{--*/ $money = money_format('%i', $number) /*--}}
+<h3>{{$money}}</h3>
+
 			<table class="table">
 				<thead>
 					<th>Fecha</th>
