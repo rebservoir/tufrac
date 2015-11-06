@@ -47,44 +47,11 @@
 		      </button>
 		    </div>
 
-		    <!-- Collect the nav links, forms, and other content for toggling -->
-		    <div class="collapse navbar-collapse no_pd" id="bs-example-navbar-collapse-1">
-		      <ul class="nav navbar-nav col-sm-12 col-md-12 col-lg-12 no_pd">
-
-						<a href="home">
-							<div class="col-xs-12 col-sm-1 col-md-1 col-lg-2 nav_tab nav_sel">
-								<div class="nav_ic icon1">
-								</div>
-								<p class="">Home</p>
-							</div>
-						</a>
-
-						<a href="administracion">
-							<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 nav_tab">
-								<div class="nav_ic icon2">
-								</div>
-								<p>Administración</p>
-							</div>
-						</a>
-
-						<a href="contenidos">
-							<div class="col-xs-12 col-sm-3 col-md-3 col-lg-2  nav_tab">
-								<div class="nav_ic icon3">
-								</div>
-								<p>Contenidos</p>
-							</div>
-						</a>
-
-						<a href="usuarios">
-							<div class="col-xs-12 col-sm-3 col-md-3 col-lg-2  nav_tab">
-								<div class="nav_ic icon3">
-								</div>
-								<p>Usuarios</p>
-							</div>
-						</a>
-
-						
-				      </ul>
+		    	<!-- Collect the nav links, forms, and other content for toggling -->
+		    	<div class="collapse navbar-collapse no_pd" id="bs-example-navbar-collapse-1">
+		      		<ul class="nav navbar-nav col-sm-12 col-md-12 col-lg-12 no_pd">
+						@yield('nav')
+				    </ul>
 				</div><!-- /.navbar-collapse -->
 			</div><!-- /.container-fluid -->
 		</nav>	

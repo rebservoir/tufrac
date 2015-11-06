@@ -25,10 +25,8 @@ class FrontController extends Controller
     public function __construct(Guard $auth){
         $this->middleware('auth', ['only' => ['index', 'admin', 'contacto', 'noticias', 'cuenta', 
             'mifrac','admin_modulo','contenidos','calendario','transparencia', 'usuarios']]);
-    
         $this->auth = $auth;
     }
-
     /**
      * Display a listing of the resource.
      *
