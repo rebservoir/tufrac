@@ -30,14 +30,6 @@
 	<div id="tablaEgresos">
 	  <div id="ene" class="tab-pane fade in active">
 
-			
-
-
-
-{{--*/  $num = 1999.9 /*--}}
-{{--*/ $formattedNum = number_format($num, 2) /*--}}
-{{--*/ echo $formattedNum /*--}}
-
 			<table class="table">
 				<thead>
 					<th>Fecha</th>
@@ -53,11 +45,10 @@
 						@if($date[1]==1)
 							<tr>
 								{{--*/ $date = explode("-", $egreso->date) /*--}}
-								{{--*/ $money = $egreso->amount /*--}}
-								{{--*/ setlocale(LC_MONETARY,"en_US") /*--}}
+								{{--*/ $money = number_format($egreso->amount, 2) /*--}}
 								<td><p>{{$egreso->date}}</p></td>
 								<td><p>{{$egreso->concept}}</p></td>
-								<td><p>{{money_format("The price is %i", $money)}}</p></td>
+								<td><p>{{'$ '.$money}}</p></td>
 								<td><a href='file/{{$egreso->path}}'  target="_blank">Descargar</a></td>
 								<td><button value='{{$egreso->id}}' OnClick='Mostrar_egresos(this)' class='btn btn-primary' data-toggle="modal" data-target="#egresos_edit">Editar</button></td>
 							</tr>
@@ -82,7 +73,7 @@
 						@if($date[1]==2)
 							<tr>
 								{{--*/ $date = explode("-", $egreso->date) /*--}}
-								{{--*/ $money = number_format($egreso->amount, 2, '.', '') /*--}}
+								{{--*/ $money = number_format($egreso->amount, 2) /*--}}
 								<td><p>{{$egreso->date}}</p></td>
 								<td><p>{{$egreso->concept}}</p></td>
 								<td><p>{{'$ '.$money}}</p></td>
@@ -110,7 +101,7 @@
 						@if($date[1]==3)
 							<tr>
 								{{--*/ $date = explode("-", $egreso->date) /*--}}
-								{{--*/ $money = number_format($egreso->amount, 2, '.', '') /*--}}
+								{{--*/ $money = number_format($egreso->amount, 2) /*--}}
 								<td><p>{{$egreso->date}}</p></td>
 								<td><p>{{$egreso->concept}}</p></td>
 								<td><p>{{'$ '.$money}}</p></td>
@@ -138,7 +129,7 @@
 						@if($date[1]==4)
 							<tr>
 								{{--*/ $date = explode("-", $egreso->date) /*--}}
-								{{--*/ $money = number_format($egreso->amount, 2, '.', '') /*--}}
+								{{--*/ $money = number_format($egreso->amount, 2) /*--}}
 								<td><p>{{$egreso->date}}</p></td>
 								<td><p>{{$egreso->concept}}</p></td>
 								<td><p>{{'$ '.$money}}</p></td>
@@ -166,7 +157,7 @@
 						@if($date[1]==5)
 							<tr>
 								{{--*/ $date = explode("-", $egreso->date) /*--}}
-								{{--*/ $money = number_format($egreso->amount, 2, '.', '') /*--}}
+								{{--*/ $money = number_format($egreso->amount, 2) /*--}}
 								<td><p>{{$egreso->date}}</p></td>
 								<td><p>{{$egreso->concept}}</p></td>
 								<td><p>{{'$ '.$money}}</p></td>
@@ -194,7 +185,7 @@
 						@if($date[1]==6)
 							<tr>
 								{{--*/ $date = explode("-", $egreso->date) /*--}}
-								{{--*/ $money = number_format($egreso->amount, 2, '.', '') /*--}}
+								{{--*/ $money = number_format($egreso->amount, 2) /*--}}
 								<td><p>{{$egreso->date}}</p></td>
 								<td><p>{{$egreso->concept}}</p></td>
 								<td><p>{{'$ '.$money}}</p></td>
@@ -222,7 +213,7 @@
 						@if($date[1]==7)
 							<tr>
 								{{--*/ $date = explode("-", $egreso->date) /*--}}
-								{{--*/ $money = number_format($egreso->amount, 2, '.', '') /*--}}
+								{{--*/ $money = number_format($egreso->amount, 2) /*--}}
 								<td><p>{{$egreso->date}}</p></td>
 								<td><p>{{$egreso->concept}}</p></td>
 								<td><p>{{'$ '.$money}}</p></td>
@@ -250,7 +241,7 @@
 						@if($date[1]==8)
 							<tr>
 								{{--*/ $date = explode("-", $egreso->date) /*--}}
-								{{--*/ $money = number_format($egreso->amount, 2, '.', '') /*--}}
+								{{--*/ $money = number_format($egreso->amount, 2) /*--}}
 								<td><p>{{$egreso->date}}</p></td>
 								<td><p>{{$egreso->concept}}</p></td>
 								<td><p>{{'$ '.$money}}</p></td>
@@ -278,7 +269,7 @@
 						@if($date[1]==9)
 							<tr>
 								{{--*/ $date = explode("-", $egreso->date) /*--}}
-								{{--*/ $money = number_format($egreso->amount, 2, '.', '') /*--}}
+								{{--*/ $money = number_format($egreso->amount, 2) /*--}}
 								<td><p>{{$egreso->date}}</p></td>
 								<td><p>{{$egreso->concept}}</p></td>
 								<td><p>{{'$ '.$money}}</p></td>
@@ -306,7 +297,7 @@
 						@if($date[1]==10)
 							<tr>
 								{{--*/ $date = explode("-", $egreso->date) /*--}}
-								{{--*/ $money = number_format($egreso->amount, 2, '.', '') /*--}}
+								{{--*/ $money = number_format($egreso->amount, 2) /*--}}
 								<td><p>{{$egreso->date}}</p></td>
 								<td><p>{{$egreso->concept}}</p></td>
 								<td><p>{{'$ '.$money}}</p></td>
@@ -334,7 +325,7 @@
 						@if($date[1]==11)
 							<tr>
 								{{--*/ $date = explode("-", $egreso->date) /*--}}
-								{{--*/ $money = number_format($egreso->amount, 2, '.', '') /*--}}
+								{{--*/ $money = number_format($egreso->amount, 2) /*--}}
 								<td><p>{{$egreso->date}}</p></td>
 								<td><p>{{$egreso->concept}}</p></td>
 								<td><p>{{'$ '.$money}}</p></td>
@@ -362,7 +353,7 @@
 						@if($date[1]==12)
 							<tr>
 								{{--*/ $date = explode("-", $egreso->date) /*--}}
-								{{--*/ $money = number_format($egreso->amount, 2, '.', '') /*--}}
+								{{--*/ $money = number_format($egreso->amount, 2) /*--}}
 								<td><p>{{$egreso->date}}</p></td>
 								<td><p>{{$egreso->concept}}</p></td>
 								<td><p>{{'$ '.$money}}</p></td>
