@@ -36,7 +36,7 @@
 
 {{--*/  $num = 1999.9 /*--}}
 {{--*/ $formattedNum = number_format($num, 2) /*--}}
-{{--*/  $formattedNum /*--}}
+{{--*/ echo $formattedNum /*--}}
 
 			<table class="table">
 				<thead>
