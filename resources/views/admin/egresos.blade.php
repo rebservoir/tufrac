@@ -45,6 +45,7 @@
 							<tr>
 								{{--*/ $date = explode("-", $egreso->date) /*--}}
 								{{--*/ $money = $egreso->amount /*--}}
+								{{--*/ setlocale(LC_MONETARY,"en_US") /*--}}
 								<td><p>{{$egreso->date}}</p></td>
 								<td><p>{{$egreso->concept}}</p></td>
 								<td><p>{{money_format("The price is %i", $money)}}</p></td>
