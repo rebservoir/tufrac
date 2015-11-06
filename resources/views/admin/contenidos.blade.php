@@ -50,7 +50,7 @@
 							<li id="int_l1" class="left_sel">	<p>Noticias</p></li>
 							<li id="int_l2">					<p>Morosos</p></li>
 							<li id="int_l3">					<p>Teléfonos y Sitios Útiles</p></li>
-							<li id="int_l4">					<p>Configurarión del sitio</p></li>
+							<li id="int_l4">					<p>Configuración del sitio</p></li>
 						</ul>
 						
 					</div>
