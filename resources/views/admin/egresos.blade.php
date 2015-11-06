@@ -34,11 +34,9 @@
 
 
 
-
-{{--*/ $number = 1234.56 /*--}}
-{{--*/ setlocale(LC_MONETARY, 'en_US') /*--}}
-{{--*/ echo money_format('%i', $number) /*--}}
-
+{{--*/  $num = 1999.9 /*--}}
+{{--*/ $formattedNum = number_format($num, 2) /*--}}
+{{--*/  $formattedNum /*--}}
 
 			<table class="table">
 				<thead>
