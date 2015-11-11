@@ -8,6 +8,7 @@
 					<td><p>{{$util->concept}}</p></td>
 					<td><p>{{$util->address}}</p></td>
 					<td><p>{{$util->phone_num}}</p></td>
+					<td><p>{{$util->url}}</p></td>
 					<td>{!!link_to_route('#', $title = 'Editar', $parameters = $util->id, $attributes = ['class'=>'btn btn-primary'])!!}</td>
 					
 					
@@ -26,6 +27,7 @@
 					<td><p>{{$util->concept}}</p></td>
 					<td><p>{{$util->address}}</p></td>
 					<td><p>{{$util->phone_num}}</p></td>
+					<td><p>{{$util->url}}</p></td>
 					</tr>
 				@endif
 			@endforeach
@@ -41,6 +43,7 @@
 					<td><p>{{$util->concept}}</p></td>
 					<td><p>{{$util->address}}</p></td>
 					<td><p>{{$util->phone_num}}</p></td>
+					<td><p>{{$util->url}}</p></td>
 					</tr>
 				@endif
 			@endforeach
@@ -56,6 +59,7 @@
 					<td><p>{{$util->concept}}</p></td>
 					<td><p>{{$util->address}}</p></td>
 					<td><p>{{$util->phone_num}}</p></td>
+					<td><p>{{$util->url}}</p></td>
 					</tr>
 				@endif
 			@endforeach
@@ -71,6 +75,7 @@
 					<td><p>{{$util->concept}}</p></td>
 					<td><p>{{$util->address}}</p></td>
 					<td><p>{{$util->phone_num}}</p></td>
+					<td><p>{{$util->url}}</p></td>
 					</tr>
 				@endif
 			@endforeach
@@ -86,6 +91,7 @@
 					<td><p>{{$util->concept}}</p></td>
 					<td><p>{{$util->address}}</p></td>
 					<td><p>{{$util->phone_num}}</p></td>
+					<td><p>{{$util->url}}</p></td>
 					</tr>
 				@endif
 			@endforeach
@@ -101,6 +107,7 @@
 					<td><p>{{$util->concept}}</p></td>
 					<td><p>{{$util->address}}</p></td>
 					<td><p>{{$util->phone_num}}</p></td>
+					<td><p>{{$util->url}}</p></td>
 					</tr>
 				@endif
 			@endforeach
@@ -116,6 +123,7 @@
 					<td><p>{{$util->concept}}</p></td>
 					<td><p>{{$util->address}}</p></td>
 					<td><p>{{$util->phone_num}}</p></td>
+					<td><p>{{$util->url}}</p></td>
 					</tr>
 				@endif
 			@endforeach

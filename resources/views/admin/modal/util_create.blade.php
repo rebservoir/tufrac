@@ -22,6 +22,10 @@
 					{!!Form::text('phone_num',null,['id'=>'phone_num1','class'=>'form-control','placeholder'=>'Ingresar Telefono'])!!}
 				</div>
 				<div class="form-group">
+					{!!Form::label('URL Web:')!!}
+					{!!Form::text('url',null,['id'=>'url1','class'=>'form-control','placeholder'=>'Ingresar URL'])!!}
+				</div>
+				<div class="form-group">
 					{!!Form::label('Categoria:')!!}
 					{!!Form::select('category', ['Emergencias', 'Fraccionamiento', 'Tintorerias', 'Taxi', 'Farmacias', 'Gruas', 'Ferreterias', 'Otros'],null,['id'=>'category1'])!!}
 				</div>

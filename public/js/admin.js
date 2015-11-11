@@ -1,8 +1,8 @@
 $(function() {
-	$( "#datepicker" ).datepicker();
+    $( "#datepicker" ).datepicker();
     $( "#datepicker" ).datepicker("option", "dateFormat", "yy-mm-dd");
   
-	$( "#datepicker_eg" ).datepicker();
+    $( "#datepicker_eg" ).datepicker();
     $( "#datepicker_eg" ).datepicker("option", "dateFormat", "yy-mm-dd");
 
     $( "#datepicker_pago" ).datepicker();
@@ -14,6 +14,10 @@ $(function() {
 
 
 $("#registrar_pago").click(function(){
+
+    $("#msj-success").addClass( "hide");
+    $( "#msj-fail").addClass( "hide");
+
     var dato1 = $("#id_user").val();
     var dato2 = $("#datepicker").val();
     var dato3 = $("#amount").val();
@@ -35,16 +39,32 @@ $("#registrar_pago").click(function(){
         data:{id_user: dato1, date: dato2, amount: dato3, status: dato4},
 
         success:function(){
-            //$("#msj-success").fadeIn();
+            $("#msj-success").removeClass( "hide");
             $("#tablaPagos").load(location.href+" #tablaPagos>*","");
-        }
-
+        },
+         error: function (jqXHR, exception) {
+            var obj = jQuery.parseJSON(jqXHR.responseText);
+            $("#msj-fail").removeClass( "hide");
+            console.log(obj);
+            var msj = obj.id_user + '<br>' + obj.date + '<br>' + obj.amount + '<br>';
+            var res = msj.replace(/undefined<br>/gi, '');
+            var res = res.replace(/id_user/gi, 'Usuario');
+            var res = res.replace(/date/gi, 'Fecha');
+            var res = res.replace(/amount/gi, 'Cantidad');
+            $(".msj").html(res);
+        } 
     });
-
 });
 
-
 function Mostrar_pago(btn){
+
+    $("#msj-success").addClass( "hide");
+    $("#msj-fail").addClass( "hide");
+    $("#msj-success1").addClass( "hide");
+    $("#msj-fail1").addClass( "hide");
+    $("#msj-success2").addClass( "hide");
+    $("#msj-fail2").addClass( "hide");
+
     var route = "../pagos/"+btn.value+"/edit";
 
     $.get(route, function(res){
@@ -57,6 +77,10 @@ function Mostrar_pago(btn){
 }
 
 $("#actualizar_pago").click(function(){
+    $("#msj-success1").addClass( "hide");
+    $( "#msj-fail1").addClass( "hide");
+    $("#msj-success2").addClass( "hide");
+    $( "#msj-fail2").addClass( "hide");
     var dato1 = $("#id_user_pago").val();
     var dato2 = $("#datepicker_pago").val();
     var dato3 = $("#amount_pago").val();
@@ -80,14 +104,30 @@ $("#actualizar_pago").click(function(){
 
 
         success:function(){
-            //$("#msj-success").fadeIn();
+            $("#msj-success1").removeClass( "hide");
             $("#tablaPagos").load(location.href+" #tablaPagos>*","");
             console.log('hell yeah!');
-        }
+        },
+        error: function (jqXHR, exception) {
+            var obj = jQuery.parseJSON(jqXHR.responseText);
+            $("#msj-fail1").removeClass( "hide");
+            console.log(obj);
+            var msj = obj.id_user + '<br>' + obj.date + '<br>' + obj.amount + '<br>';
+            var res = msj.replace(/undefined<br>/gi, '');
+            var res = res.replace(/id_user/gi, 'Usuario');
+            var res = res.replace(/date/gi, 'Fecha');
+            var res = res.replace(/amount/gi, 'Cantidad');
+            $(".msj").html(res);
+        } 
+
     });
 });
 
 $("#eliminar_pago").click(function(){
+    $("#msj-success1").addClass( "hide");
+    $( "#msj-fail1").addClass( "hide");
+    $("#msj-success2").addClass( "hide");
+    $( "#msj-fail2").addClass( "hide");
     if (confirm("Eliminar este pago?") == true) {
         var value = $("#id_pago").val();
         var route = "../pagos/"+value;
@@ -99,9 +139,12 @@ $("#eliminar_pago").click(function(){
             type: 'DELETE',
             dataType: 'json',
             success:function(){
-            //$("#msj-success").fadeIn();
+            $("#msj-success2").removeClass( "hide");
             $("#tablaPagos").load(location.href+" #tablaPagos>*","");
-            }
+            },
+            error: function (jqXHR, exception) {
+                $("#msj-fail2").removeClass( "hide");
+            } 
         });
     } else {
     } 
@@ -109,6 +152,8 @@ $("#eliminar_pago").click(function(){
 
 
  $("#registrar_egresos").on("submit", function(e){
+        $("#msj-success3").addClass( "hide");
+    $("#msj-fail3").addClass( "hide");
     e.preventDefault();
     var fd = new FormData(this);
 
@@ -129,17 +174,30 @@ $("#eliminar_pago").click(function(){
         processData: false,
 
         success:function(){
-            //$("#msj-success").fadeIn();
+            $("#msj-success3").removeClass("hide");
             $("#tablaEgresos").load(location.href+" #tablaEgresos>*","");
-        }
+        },
+        error: function (jqXHR, exception) {
+            var obj = jQuery.parseJSON(jqXHR.responseText);
+            $("#msj-fail3").removeClass("hide");
+            var msj = obj.id_user + '<br>' + obj.date + '<br>' + obj.amount + '<br>';
+            var res = msj.replace(/undefined<br>/gi, '');
+            var res = res.replace(/id_user/gi, 'Usuario');
+            var res = res.replace(/date/gi, 'Fecha');
+            var res = res.replace(/amount/gi, 'Cantidad');
+            $(".msj").html(res);
+        }    
     });
-
 });
 
-
 function Mostrar_egresos(btn){
+    $("#msj-success3").addClass( "hide");
+    $("#msj-fail3").addClass( "hide");
+    $("#msj-success4").addClass( "hide");
+    $("#msj-fail4").addClass( "hide");
+    $("#msj-success5").addClass( "hide");
+    $("#msj-fail6").addClass( "hide");
     var route = "../egresos/"+btn.value+"/edit";
-
     $.get(route, function(res){
         $("#concept_eg").val(res.concept);
         $("#datepicker_eg_edit").val(res.date);
@@ -147,7 +205,6 @@ function Mostrar_egresos(btn){
         $("#id_egresos").val(res.id);
     });
 }
-
 
 $("#eliminar_egresos").click(function(){
     if (confirm("Eliminar este egreso?") == true) {
@@ -161,9 +218,13 @@ $("#eliminar_egresos").click(function(){
             type: 'DELETE',
             dataType: 'json',
             success:function(){
-            //$("#msj-success").fadeIn();
+            $("#msj-success5").removeClass( "hide");
             $("#tablaEgresos").load(location.href+" #tablaEgresos>*","");
-            }
+            },
+            error: function (jqXHR, exception) {
+                $( "#msj-fail5").removeClass( "hide");
+            } 
+
         });
     } else {
     } 

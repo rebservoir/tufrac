@@ -8,6 +8,7 @@
 					<td><p>{{$util->concept}}</p></td>
 					<td><p>{{$util->address}}</p></td>
 					<td><p>{{$util->phone_num}}</p></td>
+					<td><p>{{$util->url}}</p></td>
 					</tr>
 				@endif
 			@endforeach
@@ -23,6 +24,7 @@
 					<td><p>{{$util->concept}}</p></td>
 					<td><p>{{$util->address}}</p></td>
 					<td><p>{{$util->phone_num}}</p></td>
+					<td><p>{{$util->url}}</p></td>
 					</tr>
 				@endif
 			@endforeach
@@ -38,6 +40,7 @@
 					<td><p>{{$util->concept}}</p></td>
 					<td><p>{{$util->address}}</p></td>
 					<td><p>{{$util->phone_num}}</p></td>
+					<td><p>{{$util->url}}</p></td>
 					</tr>
 				@endif
 			@endforeach
@@ -53,6 +56,7 @@
 					<td><p>{{$util->concept}}</p></td>
 					<td><p>{{$util->address}}</p></td>
 					<td><p>{{$util->phone_num}}</p></td>
+					<td><p>{{$util->url}}</p></td>
 					</tr>
 				@endif
 			@endforeach
@@ -68,6 +72,7 @@
 					<td><p>{{$util->concept}}</p></td>
 					<td><p>{{$util->address}}</p></td>
 					<td><p>{{$util->phone_num}}</p></td>
+					<td><p>{{$util->url}}</p></td>
 					</tr>
 				@endif
 			@endforeach
@@ -83,6 +88,7 @@
 					<td><p>{{$util->concept}}</p></td>
 					<td><p>{{$util->address}}</p></td>
 					<td><p>{{$util->phone_num}}</p></td>
+					<td><p>{{$util->url}}</p></td>
 					</tr>
 				@endif
 			@endforeach
@@ -98,6 +104,7 @@
 					<td><p>{{$util->concept}}</p></td>
 					<td><p>{{$util->address}}</p></td>
 					<td><p>{{$util->phone_num}}</p></td>
+					<td><p>{{$util->url}}</p></td>
 					</tr>
 				@endif
 			@endforeach
@@ -113,6 +120,7 @@
 					<td><p>{{$util->concept}}</p></td>
 					<td><p>{{$util->address}}</p></td>
 					<td><p>{{$util->phone_num}}</p></td>
+					<td><p>{{$util->url}}</p></td>
 					</tr>
 				@endif
 			@endforeach
