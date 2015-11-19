@@ -1,14 +1,7 @@
-var id_usuario;
-function get_id_user_pago(id_user){
-    id_usuario = id_user;
-    console.log('la id_user es:' + id_usuario);
-}
-
-
 function Mostrar(btn){
     $("#msj-success").addClass( "hide");
     $( "#msj-fail").addClass( "hide");
-    var route = "http://localhost:8080/laravel5_1/public/usuario/"+btn.value+"/edit";
+    var route = "../usuario/"+btn.value+"/edit";
     $.get(route, function(res){
         $("#name1").val(res.name);
         $("#email1").val(res.email);
@@ -32,7 +25,7 @@ $("#registrar").click(function(){
     var dato6 = $("#role").val();
     var dato7 = $("#password").val();
 
-    var route = "http://localhost:8080/laravel5_1/public/usuario";
+    var route = "../usuario";
     var token = $("#token").val();
 
     $.ajax({
@@ -81,7 +74,7 @@ $("#actualizar").click(function(){
     var dato6 = $("#role1").val();
 
 
-    var route = "http://localhost:8080/laravel5_1/public/usuario/"+value+"";
+    var route = "../usuario/"+value+"";
     var token = $("#token").val();
 
     $.ajax({
@@ -110,6 +103,7 @@ $("#actualizar").click(function(){
              var res = res.replace(/name/gi, 'Nombre');
               var res = res.replace(/address/gi, 'Dirección');
               var res = res.replace(/email/gi, 'Email');
+              var res = res.replace(/password/gi, 'Password');
             $(".msj").html(res);
         }
 
@@ -120,7 +114,7 @@ $("#actualizar").click(function(){
 $("#eliminar").click(function(){
 
     var value = $("#id1").val();
-    var route = "http://localhost:8080/laravel5_1/public/usuario/"+value+"";
+    var route = "../usuario/"+value+"";
     var token = $("#token").val();
 
     $.ajax({
@@ -137,72 +131,3 @@ $("#eliminar").click(function(){
 
 
 
-
-var index=0;
-var names = [];
-
-$( document ).ready(function() {
-
- var route = "http://localhost:8080/laravel5_1/public/usuario/show";
-    $.get(route, function(res){
-
-    for (index = 0; index < res.length; index++) {
-        names[index] = res[index].name + '/' +res[index].id;
-        console.log(names[index]);
-    }
-
-    });
-});
-
-var substringMatcher = function(strs) {
-
-  return function findMatches(q, cb) {
-    var matches, substringRegex;
-
-    // an array that will be populated with substring matches
-    matches = [];
-
-    // regex used to determine if a string contains the substring `q`
-    substrRegex = new RegExp(q, 'i');
-    
-    // iterate through the pool of strings and for any string that
-    // contains the substring `q`, add it to the `matches` array
-    $.each(strs, function(i, str) {
-          var xxx = str;
-        //var xxx = str.split('/');
-      if (substrRegex.test(str)) {
-        matches.push(xxx);
-      }
-    });
-
-    cb(matches);
-
-  };
-
-};
-
-$('#the-basics .typeahead').typeahead({
-  hint: true,
-  highlight: true,
-  minLength: 1
-},
-{
-  name: 'states',
-  source: substringMatcher(names)
-});
-
-
-function search(){
-    var route = "http://localhost:8080/laravel5_1/public/admin/usuarios/search/" + id_usuario + "" ;
-     window.location.assign(route);
-}
-
-$( ".select_user" ).change(function() {
-    console.log('k: ' + this.value);
-    sort(this.value);
-});
-
-function sort(sort){
-    var route = "http://localhost:8080/laravel5_1/public/admin/usuarios/sort/" + sort + "" ;
-     window.location.assign(route);
-}

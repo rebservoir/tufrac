@@ -19,21 +19,21 @@
 		</a>
 		<a href="administracion">
 				<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 nav_tab nav_sel">
-				<div class="nav_ic icon7">
+				<div class="nav_ic icon2">
 				</div>
 				<p>Administración</p>
 			</div>
 		</a>
 		<a href="contenidos">
 			<div class="col-xs-12 col-sm-3 col-md-3 col-lg-2  nav_tab">
-				<div class="nav_ic icon8">
+				<div class="nav_ic icon3">
 				</div>
 				<p>Contenidos</p>
 			</div>
 		</a>
 		<a href="usuarios">
 			<div class="col-xs-12 col-sm-3 col-md-3 col-lg-2  nav_tab">
-				<div class="nav_ic icon9">
+				<div class="nav_ic icon3">
 				</div>
 				<p>Usuarios</p>
 			</div>
@@ -42,9 +42,10 @@
 
 	@section('content')
 
-					<div class="cont_left cont_600 col-lg-3">
+	<div class="cont_left cont_600 col-lg-3">
+						
 						<div class="box_header">
-							{!!Html::image('img/n_7.png')!!}
+							{!!Html::image('img/n_3.png')!!}
 							<h1>Administración</h1>
 						</div>
 						
@@ -56,6 +57,7 @@
 							<li id="int_l5">					<p>Tareas</p></li>
 							<li id="int_l6">					<p>Envió de Correos</p></li>
 						</ul>
+						
 					</div>
 
 					<div class="cont_right col-lg-9">
@@ -123,8 +125,5 @@
 	@stop
 
 	@section('script')
-		{!!Html::script('js/typeahead.js/bloodhound.js')!!}
-		{!!Html::script('js/typeahead.js/typeahead.bundle.js')!!}
-		{!!Html::script('js/typeahead.js/typeahead.jquery.js')!!}
 		{!!Html::script('js/admin.js')!!}
 	@stop

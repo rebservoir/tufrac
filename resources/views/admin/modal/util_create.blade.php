@@ -7,13 +7,6 @@
 				</button>
 				<h4 class="modal-title" id="myModalLabel">Registrar Telefonos/Sitios Utiles</h4>
 			</div>
-<div id="msj-success4" class="alert alert-success alert-dismissible hide" role="alert">
-  <p>Sitio registrado exitosamente.</p>
-</div>
-
-<div id="msj-fail4" class="alert alert-danger alert-dismissible hide" role="alert">
-  <div class="msj"></div>
-</div>
 			<div class="modal-body">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}" id="token1">
 				<div class="form-group">
@@ -29,7 +22,7 @@
 					{!!Form::text('phone_num',null,['id'=>'phone_num1','class'=>'form-control','placeholder'=>'Ingresar Telefono'])!!}
 				</div>
 				<div class="form-group">
-					{!!Form::label('URL:')!!}
+					{!!Form::label('URL Web:')!!}
 					{!!Form::text('url',null,['id'=>'url1','class'=>'form-control','placeholder'=>'Ingresar URL'])!!}
 				</div>
 				<div class="form-group">

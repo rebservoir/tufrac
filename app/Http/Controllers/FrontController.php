@@ -4,8 +4,6 @@ namespace TuFracc\Http\Controllers;
 
 use Illuminate\Http\Request;
 use TuFracc\Http\Requests;
-use TuFracc\Http\Requests\UserCreateRequest;
-use TuFracc\Http\Requests\UserUpdateRequest;
 use TuFracc\Http\Controllers\Controller;
 use TuFracc\User;
 use TuFracc\Noticia;
@@ -14,7 +12,6 @@ use TuFracc\Utiles;
 use TuFracc\Pagos;
 use TuFracc\Egresos;
 use TuFracc\Saldos;
-use TuFracc\Sitio;
 use Illuminate\Contracts\Auth\Guard;
 use Closure;
 use Session;
@@ -28,10 +25,8 @@ class FrontController extends Controller
     public function __construct(Guard $auth){
         $this->middleware('auth', ['only' => ['index', 'admin', 'contacto', 'noticias', 'cuenta', 
             'mifrac','admin_modulo','contenidos','calendario','transparencia', 'usuarios']]);
-    
         $this->auth = $auth;
     }
-
     /**
      * Display a listing of the resource.
      *
@@ -57,7 +52,7 @@ class FrontController extends Controller
     public function noticias(Request $request)
     {
         $noticias = Noticia::orderBy('created_at', 'desc')->paginate(5);
-        $noticias->setPath('/laravel5_1/public/noticias');
+        $noticias->setPath('/noticias');
 
         if($this->auth->user()->role != 1){
             if($request->ajax()){
@@ -106,7 +101,7 @@ class FrontController extends Controller
         if($this->auth->user()->role == 1){
 
                 $users = User::paginate(20);
-                $users->setPath('/laravel5_1/public/admin/home');
+                $users->setPath('/admin/home');
                 $morosos = Morosos::where('id', 0)->get();
                 $noticias = Noticia::all()->sortByDesc('created_at')->take(2);
                 return view('admin/index', ['noticias' => $noticias, 'users' => $users, 'morosos' => $morosos ]);
@@ -120,7 +115,7 @@ class FrontController extends Controller
     {
         if($this->auth->user()->role == 1){
             $users = User::paginate(20);
-            $users->setPath('/laravel5_1/public/admin/administracion');
+            $users->setPath('/admin/administracion');
             $pagos = Pagos::all();
             $egresos = Egresos::all();
             return view('/admin/admin_modulo', ['users' => $users, 'pagos' => $pagos, 'egresos' => $egresos]);
@@ -135,8 +130,7 @@ class FrontController extends Controller
             $noticias = Noticia::all();
             $utiles = Utiles::all();
             $morosos = Morosos::all()->where('id', 0);
-            $sitio = Sitio::all()->where('id', 1);
-            return view('/admin/contenidos', [ 'morosos' => $morosos, 'utiles' => $utiles, 'noticias' => $noticias, 'sitio' => $sitio ]);
+            return view('/admin/contenidos', [ 'morosos' => $morosos, 'utiles' => $utiles, 'noticias' => $noticias]);
         }else{
             return Redirect::to('home');
         }
@@ -145,43 +139,12 @@ class FrontController extends Controller
     public function usuarios()
     {
         if($this->auth->user()->role == 1){
-                $users = User::all();
+            $users = User::all();
             return view('/admin/usuarios', [ 'users' => $users]);
         }else{
             return Redirect::to('home');
         }
     }
 
-    public function usuarios2($id)
-    {
-        if($this->auth->user()->role == 1){
-                $users = User::all()->where('id', $id);;
-            return view('/admin/usuarios', [ 'users' => $users]);
-        }else{
-            return Redirect::to('home');
-        }
-    }
-
-    public function edit_info($id)
-    {
-        $user = User::find($id);
-
-        return response()->json(
-            $user->toArray()
-            );
-    }
-
-
-    public function update_info_user($id, UserUpdateRequest $request)
-    {
-        $user = User::find($id);
-        $user->fill($request->all());
-        $user->save();
-
-        return response()->json([
-            "message"=>'listo'
-        ]);
-    }
-    
 
 }

@@ -11,7 +11,6 @@ use TuFracc\User;
 use Session;
 use Redirect;
 use Illuminate\Routing\Route;
-use Illuminate\Database\Eloquent;
 
 class UsuarioController extends Controller
 {
@@ -36,7 +35,7 @@ class UsuarioController extends Controller
     public function index()
     {
         $users = User::paginate(10);
-        $users->setPath('/laravel5_1/public/usuario');
+        $users->setPath('/usuario');
         return view('usuario.usuarios',compact('users'));
     }
 
@@ -71,41 +70,10 @@ class UsuarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show($id)
     {
-        $user = User::all();
-        return response()->json(
-            $user->toArray()
-            );
+        //
     }
-
-    public function search($id)
-    {
-        $users = User::where('id', $id)->get();
-            return view('/admin/usuarios', [ 'users' => $users]);
-    }
-
-    public function sort($sort)
-    {
-        if($sort == 'name'){
-            $users = User::all()->sortBy('name');
-            $sel1 = 'name';
-        }else if($sort == 'desc'){
-            $users = User::all()->sortByDesc('name');
-        }else if($sort == 'email'){
-            $users = User::all()->sortBy('email');
-        }else if($sort == 'email_desc'){
-            $users = User::all()->sortByDesc('email');
-        }else if($sort == 'all'){
-            $users = User::all();
-        }else if($sort == 'adeudo'){
-            $users = User::where('status', 1 )->get();
-        }else if($sort == 'corriente'){
-            $users = User::where('status', 0 )->get();
-        }
-            return view('/admin/usuarios', [ 'users' => $users]);
-    }
-
 
     /**
      * Show the form for editing the specified resource.
@@ -116,13 +84,10 @@ class UsuarioController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
-
         return response()->json(
             $user->toArray()
             );
     }
-
-
 
     /**
      * Update the specified resource in storage.

@@ -4,8 +4,6 @@ namespace TuFracc\Http\Controllers;
 
 use Illuminate\Http\Request;
 use TuFracc\Http\Requests;
-use TuFracc\Http\Requests\PagoCreateRequest;
-use TuFracc\Http\Requests\PagoUpdateRequest;
 use TuFracc\Http\Controllers\Controller;
 use TuFracc\Pagos;
 
@@ -37,7 +35,7 @@ class PagosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(PagoCreateRequest $request)
+    public function store(Request $request)
     {
         if($request->ajax()){
             Pagos::create($request->all());
@@ -81,7 +79,7 @@ class PagosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(PagoUpdateRequest $request, $id)
+    public function update(Request $request, $id)
     {
         $pago = Pagos::find($id);
         $pago->fill($request->all());
